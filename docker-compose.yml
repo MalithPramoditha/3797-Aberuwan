@@ -1,22 +1,10 @@
 version: '3'
 services:
-  backend:
-    build: ./backend
-    ports:
-      - "3000:3000"
-    environment:
-      - NODE_ENV=production
-    depends_on:
-      - database
-
   frontend:
     build: ./frontend
     ports:
-      - "3001:3001"
-    environment:
-      - REACT_APP_BACKEND_URL=http://backend:3000
-
-  database:
-    image: mongo:latest
+      - '3000:3000'
+  backend:
+    build: ./backend
     ports:
-      - "27017:27017"
+      - '8080:8080'
